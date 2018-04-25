@@ -18,9 +18,8 @@ class BabyHog extends Component {
     this.state = {
       name: this.props.name,
       weight: this.props.weight,
-      eyeColor: this.props.eyeColor
-
-
+      eyeColor: this.props.eyeColor,
+      imgHeight: 200
     }
   }
 
@@ -32,11 +31,13 @@ class BabyHog extends Component {
     event.preventDefault()
     if (event.target.id === "increase"){
       this.setState({
-        weight: "chunky"
+        weight: "chunkier",
+        imgHeight: this.state.imgHeight < 300 ? this.state.imgHeight + 10 : this.state.imgHeight
       })
     } else {
       this.setState({
-        weight: "slenderpig"
+        weight: "slenderpig",
+        imgHeight: this.state.imgHeight > 10 ? this.state.imgHeight - 10 : this.state.imgHeight
       })
     }
   }
